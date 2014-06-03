@@ -1,7 +1,6 @@
-$(function(){
+$(".games.new").ready(function(){
 // Problem: No user interaction causes a change to the application
 // Solution: When user interacts cause appropriate change
-
 var color = $(".selected").css("background-color");
 var $canvas = $("canvas");
 var context = $canvas[0].getContext("2d");
@@ -50,6 +49,20 @@ $("#addNewColor").click(function(){
   // Select the new color
 });
   
+// When Save Image is pressed
+$("#saveImage").click(function(){
+  $("#game_image").val($canvas[0].toDataURL());
+  context.clearRect(0,0, canvas.width, canvas.height);
+
+})
+
+// When Draw Image is pressed
+$("#drawImage").click(function(){
+  var image = new Image();
+  image.src = $("#game_image").val();
+  context.drawImage(image, 0, 0);
+})
+
 
 // On canvas mouse events
 $canvas.mousedown(function(e){
