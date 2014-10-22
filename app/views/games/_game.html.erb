@@ -1,0 +1,8 @@
+<div class="game">
+	<%= game.name %>
+	<img src="#" alt="" height="100" width="200">
+	<%= game.caption %>
+	<%= link_to 'Show', game %>
+	<%= link_to 'Edit', edit_game_path(game) %>
+	<%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
